@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -90,64 +91,67 @@
         <a href="directory.html" class="action-link">📁 View All iTabs</a>
     </div>
 
-    <div class="popup-overlay" id="popup" onclick="closePopup(event)">
-        <div class="popup" onclick="event.stopPropagation()">
-            <div class="popup-header">
-                <button class="close-btn" onclick="closePopup()">&times;</button>
-                <h3>What is iTabs?</h3>
-                <p>The full story</p>
+```
+<div class="popup-overlay" id="popup" onclick="closePopup(event)">
+    <div class="popup" onclick="event.stopPropagation()">
+        <div class="popup-header">
+            <button class="close-btn" onclick="closePopup()">&times;</button>
+            <h3>What is iTabs?</h3>
+            <p>The full story</p>
+        </div>
+        <div class="popup-body">
+            <div class="hook-box">
+                <p class="hook-text">If we want people to invest their money, we can't expect them to waste their time.</p>
             </div>
-            <div class="popup-body">
-                <div class="hook-box">
-                    <p class="hook-text">If we want people to invest their money, we can't expect them to invest their time as well.</p>
-                </div>
-                
-                <div class="section">
-                    <h4>🚨 The Problem</h4>
-                    <p>Walls of text kill engagement. GoFundMe campaigns, product pages, complex info — people scroll past because they don't have time to read and figure it out. Only 27% of crowdfunding campaigns reach their goal.</p>
-                </div>
-                
-                <div class="section">
-                    <h4>💡 The Solution</h4>
-                    <p>iTabs puts photos first. The blue "i" button reveals organised information ONLY when people want it. Like Instagram — you control how deep you go. Visual first, details on demand.</p>
-                </div>
-                
-                <div class="section">
-                    <h4>🎯 Who It's For</h4>
-                    <ul>
-                        <li><strong>GoFundMe campaigns</strong> — turn your story into something people actually read</li>
-                        <li><strong>Crowdfunding projects</strong> — explain complex products visually</li>
-                        <li><strong>Any confusing content</strong> — make it clear and clickable</li>
-                    </ul>
-                </div>
-                
-                <div class="section">
-                    <h4>✅ How It Works</h4>
-                    <p>1. Paste your text or story<br>
-                    2. AI organises it into clear sections<br>
-                    3. Add your photos<br>
-                    4. Download your iTabs — done!</p>
-                </div>
-                
-                <a href="index.html" class="popup-btn">Create Your iTabs Free</a>
+            
+            <div class="section">
+                <h4>🚨 The Problem</h4>
+                <p>Walls of text kill engagement. GoFundMe campaigns, product pages, complex info — people scroll past because they don't have time to read and figure it out. Only 27% of crowdfunding campaigns reach their goal.</p>
             </div>
+            
+            <div class="section">
+                <h4>💡 The Solution</h4>
+                <p>iTabs puts photos first. The blue "i" button reveals organised information ONLY when people want it. Like Instagram — you control how deep you go. Visual first, details on demand.</p>
+            </div>
+            
+            <div class="section">
+                <h4>🎯 Who It's For</h4>
+                <ul>
+                    <li><strong>GoFundMe campaigns</strong> — turn your story into something people actually read</li>
+                    <li><strong>Crowdfunding projects</strong> — explain complex products visually</li>
+                    <li><strong>Any confusing content</strong> — make it clear and clickable</li>
+                </ul>
+            </div>
+            
+            <div class="section">
+                <h4>✅ How It Works</h4>
+                <p>1. Paste your text or story<br>
+                2. AI organises it into clear sections<br>
+                3. Add your photos<br>
+                4. Download your iTabs — done!</p>
+            </div>
+            
+            <a href="index.html" class="popup-btn">Create Your iTabs Free</a>
         </div>
     </div>
+</div>
 
-    <script>
-        let cur=0,auto=true,intv;
-        const total=3;
-        function goTo(i){cur=i;document.getElementById('track').style.transform='translateX(-'+cur*100+'%)';document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',parseInt(d.getAttribute('data-slide'))===cur))}
-        function next(){cur=(cur+1)%total;goTo(cur)}
-        function startAuto(){if(auto&&total>1){intv=setInterval(next,3500)}}
-        function stopAuto(){clearInterval(intv)}
-        function openPopup(){document.getElementById('popup').classList.add('active');document.body.style.overflow='hidden';stopAuto()}
-        function closePopup(e){if(!e||e.target.id==='popup'||e.target.classList.contains('close-btn')){document.getElementById('popup').classList.remove('active');document.body.style.overflow='';startAuto()}}
-        document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup()});
-        document.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>goTo(parseInt(d.getAttribute('data-slide')))));
-        let sx=0;document.getElementById('slideshow').addEventListener('touchstart',e=>sx=e.changedTouches[0].screenX);
-        document.getElementById('slideshow').addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].screenX;if(Math.abs(d)>50){d>0?next():goTo((cur-1+total)%total)}});
-        startAuto();
-    </script>
+<script>
+    let cur=0,auto=true,intv;
+    const total=3;
+    function goTo(i){cur=i;document.getElementById('track').style.transform='translateX(-'+cur*100+'%)';document.querySelectorAll('.dot').forEach((d,j)=>d.classList.toggle('active',parseInt(d.getAttribute('data-slide'))===cur))}
+    function next(){cur=(cur+1)%total;goTo(cur)}
+    function startAuto(){if(auto&&total>1){intv=setInterval(next,3500)}}
+    function stopAuto(){clearInterval(intv)}
+    function openPopup(){document.getElementById('popup').classList.add('active');document.body.style.overflow='hidden';stopAuto()}
+    function closePopup(e){if(!e||e.target.id==='popup'||e.target.classList.contains('close-btn')){document.getElementById('popup').classList.remove('active');document.body.style.overflow='';startAuto()}}
+    document.addEventListener('keydown',e=>{if(e.key==='Escape')closePopup()});
+    document.querySelectorAll('.dot').forEach(d=>d.addEventListener('click',()=>goTo(parseInt(d.getAttribute('data-slide')))));
+    let sx=0;document.getElementById('slideshow').addEventListener('touchstart',e=>sx=e.changedTouches[0].screenX);
+    document.getElementById('slideshow').addEventListener('touchend',e=>{const d=sx-e.changedTouches[0].screenX;if(Math.abs(d)>50){d>0?next():goTo((cur-1+total)%total)}});
+    startAuto();
+</script>
+```
+
 </body>
 </html>
